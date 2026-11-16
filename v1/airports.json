@@ -1,7 +1,7 @@
 {
   "_schema_version": "0.2",
-  "data_version": 2,
-  "generated_at": "2026-11-16T05:47:15Z",
+  "data_version": 3,
+  "generated_at": "2026-11-16T05:49:14Z",
   "source_repo": "https://github.com/igalness/lounge-math-data",
   "_notes": [
     "Every field that can go stale carries verified_on + source.",
@@ -156,11 +156,18 @@
           "name": "Goldair CIP Lounge — Schengen",
           "display_name": "Goldair CIP",
           "zone": "schengen",
-          "entry_window": {
-            "max_stay_hours": 3,
+          "location": "Level 1, intra-Schengen area, opposite gate B13",
+          "opening_hours": {
+            "always_open": true,
             "confidence": "verified",
-            "verified_on": "2026-09-05",
-            "source": "first-hand"
+            "verified_on": "2026-07-20",
+            "source": "Trip.com lounge voucher (Dragonpass) · 2026-07-20"
+          },
+          "entry_window": {
+            "max_stay_hours": 2,
+            "confidence": "verified",
+            "verified_on": "2026-07-20",
+            "source": "Trip.com lounge voucher (Dragonpass) · 2026-07-20"
           },
           "restrictions": [
             "Not accessible to passengers departing from Hall A or the Satellite Terminal"
@@ -170,7 +177,8 @@
             "confidence": "scraped",
             "verified_on": "2026-09-05",
             "source": "agent web fetch, recorded in docs/handoff.md"
-          }
+          },
+          "note": "Max stay depends on the voucher supplier: 2 h on the Dragonpass voucher (Jul 2026); 3 h observed first-hand in Sep 2026. The engine uses the lower bound (D35)."
         }
       ],
       "terminal_alternative": {
