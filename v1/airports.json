@@ -178,7 +178,7 @@
             "verified_on": "2026-09-05",
             "source": "agent web fetch, recorded in docs/handoff.md"
           },
-          "note": "Max stay is the voucher supplier's term — 2 h on Dragonpass; other suppliers may differ."
+          "note": "Max stay depends on the voucher supplier: 2 h on the Dragonpass voucher (Jul 2026); 3 h observed first-hand in Sep 2026. The engine uses the lower bound (D35)."
         }
       ],
       "terminal_alternative": {
