@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://igalness.github.io/lounge-math-data/schema/airports.schema.json",
+  "title": "LoungeMath airports (schema 0.2)",
+  "type": "object",
+  "required": ["data_version", "generated_at", "source_repo", "airports"],
+  "properties": {
+    "_schema_version": { "const": "0.2" },
+    "data_version": { "type": "integer", "minimum": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "source_repo": { "type": "string", "format": "uri" },
+    "_notes": { "type": "array", "items": { "type": "string" } },
+    "_todo_airports": { "type": "array", "items": { "type": "string", "pattern": "^[A-Z]{3}$" } },
+    "_todo_note": { "type": "string" },
+    "airports": { "type": "array", "items": { "$ref": "#/$defs/airport" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "confidence": { "enum": ["verified", "scraped", "rule", "unknown"] },
+    "date": { "type": "string", "format": "date" },
+    "stamp": {
+      "type": "object",
+      "required": ["confidence"],
+      "properties": {
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "verified_on": { "$ref": "#/$defs/date" },
+        "source": { "type": "string", "minLength": 1 }
+      }
+    },
+    "airport": {
+      "type": "object",
+      "required": ["iata", "name", "city", "country", "updated_at", "border", "lounges"],
+      "properties": {
+        "iata": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "city": { "type": "string", "minLength": 1 },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "updated_at": { "$ref": "#/$defs/date" },
+        "contributors": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "border": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "eu": { "type": ["boolean", "null"] },
+            "schengen": { "type": ["boolean", "null"] },
+            "note": { "type": "string" },
+            "ees_applies_to_schengen_destinations": { "type": ["boolean", "null"] }
+          }
+        },
+        "airside_access": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "hard_limit_hours_before": { "type": ["number", "null"] },
+            "automated_bp_gate": { "type": ["boolean", "null"] },
+            "note": { "type": "string" }
+          }
+        },
+        "zone_split": { "type": ["boolean", "null"] },
+        "zone_warning": { "type": "string" },
+        "lounges": { "type": "array", "items": { "$ref": "#/$defs/lounge" } },
+        "terminal_alternative": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "quality": { "type": ["string", "null"] },
+            "coffee_plus_sandwich_eur": { "type": ["number", "null"] },
+            "seating_with_power": { "enum": ["none", "limited", "moderate", null] },
+            "notes_24h_food": { "type": "string" }
+          }
+        },
+        "verdict": {
+          "type": "object",
+          "required": ["recommend", "headline"],
+          "properties": {
+            "recommend": { "enum": ["yes_with_timing", "depends_on_zone", "no_lounge_closes", "no_lounge_here"] },
+            "headline": { "type": "string" },
+            "reasons": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "lounge": {
+      "type": "object",
+      "required": ["id", "name", "zone"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z]{3}-[a-z0-9-]+$" },
+        "name": { "type": "string", "minLength": 1 },
+        "display_name": { "type": "string" },
+        "gate_hint": { "type": "string" },
+        "operator": { "type": "string" },
+        "location": { "type": "string" },
+        "zone": { "enum": ["schengen", "non_schengen", "all_international", "unknown"] },
+        "note": { "type": "string" },
+        "warning": { "type": "string" },
+        "restrictions": { "type": "array", "items": { "type": "string" } },
+        "opening_hours": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "always_open": { "type": ["boolean", "null"] },
+            "open": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
+            "close": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" }
+          }
+        },
+        "entry_window": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "earliest_hours_before_departure": { "type": ["number", "null"] },
+            "earlier_at_staff_discretion": { "type": ["boolean", "null"] },
+            "max_stay_hours": { "type": ["number", "null"] }
+          }
+        },
+        "amenities": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "showers": { "type": ["boolean", "null"] },
+            "wifi": { "type": ["boolean", "null"] },
+            "power": { "type": ["boolean", "null"] },
+            "call_booths": { "type": ["boolean", "null"] }
+          }
+        },
+        "price": {
+          "allOf": [{ "$ref": "#/$defs/stamp" }],
+          "properties": {
+            "walk_in_eur": { "type": ["number", "null"] },
+            "prepaid_typical_eur": { "type": ["number", "null"] }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

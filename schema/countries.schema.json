@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://igalness.github.io/lounge-math-data/schema/countries.schema.json",
+  "title": "LoungeMath country border table (schema 0.2)",
+  "type": "object",
+  "required": ["data_version", "generated_at", "source_repo", "countries"],
+  "properties": {
+    "_schema_version": { "const": "0.2" },
+    "data_version": { "type": "integer", "minimum": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "source_repo": { "type": "string", "format": "uri" },
+    "_notes": { "type": "array", "items": { "type": "string" } },
+    "countries": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[A-Z]{2}$" },
+      "additionalProperties": { "$ref": "#/$defs/country" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "country": {
+      "type": "object",
+      "required": ["name", "eu", "schengen", "confidence"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "eu": { "type": "boolean" },
+        "schengen": { "type": "boolean" },
+        "note": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["verified", "scraped", "rule", "unknown"] },
+        "verified_on": { "type": "string", "format": "date" },
+        "source": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

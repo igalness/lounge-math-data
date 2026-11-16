@@ -1,0 +1,204 @@
+{
+  "_schema_version": "0.2",
+  "data_version": 2,
+  "generated_at": "2026-11-16T05:47:15Z",
+  "source_repo": "https://github.com/igalness/lounge-math-data",
+  "_notes": [
+    "Every field that can go stale carries verified_on + source.",
+    "confidence: 'verified' = human/first-hand, 'scraped' = agent, 'rule' = a border or policy rule rather than a datapoint (carries no verified_on and never goes stale), 'unknown' = do not display as fact.",
+    "Only airports with real sourced data are included. Do not backfill from memory."
+  ],
+  "airports": [
+    {
+      "iata": "LCA",
+      "name": "Larnaca Glafcos Clerides",
+      "city": "Larnaca",
+      "country": "CY",
+      "updated_at": "2026-11-16",
+      "border": {
+        "eu": true,
+        "schengen": false,
+        "note": "EU but outside Schengen. Departures to Schengen countries cross an external border: EES biometrics apply to third-country nationals.",
+        "ees_applies_to_schengen_destinations": true,
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": false,
+        "note": "No published cap on how early you may clear security. Human-staffed entry.",
+        "confidence": "scraped",
+        "verified_on": "2026-09-05",
+        "source": "agent web fetch, recorded in docs/handoff.md"
+      },
+      "zone_split": false,
+      "lounges": [
+        {
+          "id": "lca-skala",
+          "name": "Skala Lounge",
+          "display_name": "Skala",
+          "gate_hint": "3F, Gate 22",
+          "operator": "independent",
+          "location": "Airside, after security. Lift beside Chanel in Duty Free to 3rd floor. Next to Gate 22.",
+          "zone": "all_international",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "verified",
+            "verified_on": "2026-09-05",
+            "source": "first-hand visit"
+          },
+          "entry_window": {
+            "earliest_hours_before_departure": 3,
+            "earlier_at_staff_discretion": true,
+            "max_stay_hours": 3,
+            "confidence": "verified",
+            "verified_on": "2026-09-05",
+            "source": "first-hand visit"
+          },
+          "restrictions": [
+            "International departures only",
+            "Smart casual dress",
+            "Access subject to space availability"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": true,
+            "call_booths": false,
+            "confidence": "verified",
+            "verified_on": "2026-09-05",
+            "source": "first-hand visit"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": 22,
+            "verified_on": "2026-09-05",
+            "confidence": "verified",
+            "source": "user booking via Trip.com"
+          }
+        }
+      ],
+      "terminal_alternative": {
+        "quality": "adequate",
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": "limited",
+        "notes_24h_food": "Food for Flight and Ritazza reported as 24h options.",
+        "confidence": "scraped",
+        "verified_on": "2026-09-05",
+        "source": "agent web fetch, recorded in docs/handoff.md"
+      },
+      "verdict": {
+        "recommend": "yes_with_timing",
+        "headline": "Worth it — but not before T−3h.",
+        "reasons": [
+          "Lounge is 24h, so no closing-time risk on any departure.",
+          "3h cap and 3h earliest-entry rule align: your window is fixed, not flexible.",
+          "Terminal food is thin; lounge at ~€22 is close to cafe cost."
+        ]
+      }
+    },
+    {
+      "iata": "ATH",
+      "name": "Athens Eleftherios Venizelos",
+      "city": "Athens",
+      "country": "GR",
+      "updated_at": "2026-11-16",
+      "border": {
+        "eu": true,
+        "schengen": true,
+        "note": "Non-Schengen departures cross an external border. EES fully operational at all external Schengen borders since 2026-04-10; queue times can be significant at peak.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": false,
+        "note": "Airport publishes minimum arrival guidance only (2-3h), no maximum-early rule.",
+        "confidence": "scraped",
+        "verified_on": "2026-09-05",
+        "source": "agent web fetch, recorded in docs/handoff.md"
+      },
+      "zone_split": true,
+      "zone_warning": "Passes are location-specific and NOT transferable between halls. Check your hall before buying.",
+      "lounges": [
+        {
+          "id": "ath-goldair-hall-a",
+          "name": "Goldair Handling Lounge — Hall A",
+          "display_name": "Goldair · Hall A",
+          "gate_hint": "2F, near Gate A7",
+          "zone": "non_schengen",
+          "location": "2nd floor near Gate A7, after duty free",
+          "opening_hours": {
+            "always_open": false,
+            "open": "06:00",
+            "close": "20:00",
+            "confidence": "scraped",
+            "verified_on": "2026-09-05",
+            "source": "agent web fetch, recorded in docs/handoff.md"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-09-05",
+            "source": "agent web fetch, recorded in docs/handoff.md"
+          },
+          "restrictions": [
+            "Access subject to space availability"
+          ],
+          "price": {
+            "prepaid_typical_eur": 22,
+            "confidence": "scraped",
+            "verified_on": "2026-09-05",
+            "source": "agent web fetch, recorded in docs/handoff.md"
+          },
+          "warning": "Closes at 20:00 — unusable for late-evening non-Schengen departures."
+        },
+        {
+          "id": "ath-goldair-cip-schengen",
+          "name": "Goldair CIP Lounge — Schengen",
+          "display_name": "Goldair CIP",
+          "zone": "schengen",
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "verified",
+            "verified_on": "2026-09-05",
+            "source": "first-hand"
+          },
+          "restrictions": [
+            "Not accessible to passengers departing from Hall A or the Satellite Terminal"
+          ],
+          "price": {
+            "prepaid_typical_eur": 22,
+            "confidence": "scraped",
+            "verified_on": "2026-09-05",
+            "source": "agent web fetch, recorded in docs/handoff.md"
+          }
+        }
+      ],
+      "terminal_alternative": {
+        "quality": "adequate",
+        "seating_with_power": "moderate",
+        "confidence": "unknown"
+      },
+      "verdict": {
+        "recommend": "depends_on_zone",
+        "headline": "Check your hall first — wrong lounge is a wasted €22.",
+        "reasons": [
+          "Passes are hall-specific and non-transferable.",
+          "Hall A lounge shuts at 20:00.",
+          "Non-Schengen departure adds EES exit processing — budget queue time."
+        ]
+      }
+    }
+  ],
+  "_todo_airports": [
+    "BEG",
+    "SKP",
+    "TGD",
+    "KIV",
+    "TBS",
+    "BUS",
+    "EVN",
+    "BOJ",
+    "AYT"
+  ],
+  "_todo_note": "Nine airports the user has flown but has no dated first-hand data for. Populate from receipts (Trip.com order history, Gmail boarding passes) and forward capture — not from memory."
+}

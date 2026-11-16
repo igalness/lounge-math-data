@@ -1,0 +1,22 @@
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch main for the data_version check
+        run: git fetch origin main:refs/remotes/origin/main || echo "no main yet — data_version check skipped"
+      - name: Validator self-tests
+        run: python -m unittest discover -s scripts -v
+      - name: Validate v1/
+        run: python scripts/validate.py --base-ref origin/main

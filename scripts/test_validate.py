@@ -1,0 +1,96 @@
+"""Tests for scripts/validate.py — each one proves CI rejects a bad file.
+
+Run: python3 -m unittest discover -s scripts
+"""
+
+import copy
+import datetime as dt
+import json
+import shutil
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import validate  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+TODAY = dt.datetime.now(dt.timezone.utc).date()
+
+
+class ValidatorTests(unittest.TestCase):
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        for rel in ("v1", "schema"):
+            shutil.copytree(ROOT / rel, self.tmp / rel)
+        self.airports = json.loads((ROOT / "v1/airports.json").read_text())
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def run_with(self, airports):
+        (self.tmp / "v1/airports.json").write_text(json.dumps(airports))
+        return validate.validate(self.tmp, None, TODAY)
+
+    def lca_stamp(self, data):
+        return data["airports"][0]["lounges"][0]["entry_window"]
+
+    def test_currentDataPasses(self):
+        self.assertEqual(validate.validate(ROOT, None, TODAY), [])
+
+    def test_undatedVerifiedStampFails(self):
+        data = copy.deepcopy(self.airports)
+        del self.lca_stamp(data)["verified_on"]
+        errors = self.run_with(data)
+        self.assertTrue(any("has no verified_on" in e for e in errors), errors)
+
+    def test_unsourcedScrapedStampFails(self):
+        data = copy.deepcopy(self.airports)
+        del data["airports"][0]["airside_access"]["source"]
+        errors = self.run_with(data)
+        self.assertTrue(any("scraped stamp has no source" in e for e in errors), errors)
+
+    def test_futureDateFails(self):
+        data = copy.deepcopy(self.airports)
+        self.lca_stamp(data)["verified_on"] = (TODAY + dt.timedelta(days=1)).isoformat()
+        self.assertTrue(any("in the future" in e for e in self.run_with(data)))
+
+    def test_impossibleDateFails(self):
+        data = copy.deepcopy(self.airports)
+        self.lca_stamp(data)["verified_on"] = "2026-02-30"
+        self.assertTrue(any("not a real date" in e for e in self.run_with(data)))
+
+    def test_ruleStampNeedsNoDate(self):
+        data = copy.deepcopy(self.airports)
+        self.assertNotIn("verified_on", data["airports"][0]["border"])
+        self.assertEqual(self.run_with(data), [])
+
+    def test_schemaRejectsMissingUpdatedAt(self):
+        data = copy.deepcopy(self.airports)
+        del data["airports"][0]["updated_at"]
+        self.assertTrue(any("updated_at" in e for e in self.run_with(data)))
+
+    def test_schemaRejectsUnknownZone(self):
+        data = copy.deepcopy(self.airports)
+        data["airports"][0]["lounges"][0]["zone"] = "airside"
+        self.assertTrue(any(".zone" in e for e in self.run_with(data)))
+
+    def test_dataVersionMustGrowWhenTheFileChanges(self):
+        base = json.dumps(self.airports)
+        changed = copy.deepcopy(self.airports)
+        changed["airports"][0]["name"] += " "
+        text = json.dumps(changed)
+        self.assertTrue(validate.version_errors("v1/airports.json", changed, text, base))
+        changed["data_version"] += 1
+        self.assertEqual(validate.version_errors("v1/airports.json", changed, json.dumps(changed), base), [])
+
+    def test_dataVersionCheckSkippedWithoutMainOrWhenUnchanged(self):
+        text = json.dumps(self.airports)
+        self.assertEqual(validate.version_errors("v1/airports.json", self.airports, text, None), [])
+        self.assertEqual(validate.version_errors("v1/airports.json", self.airports, text, text), [])
+
+
+if __name__ == "__main__":
+    unittest.main()
