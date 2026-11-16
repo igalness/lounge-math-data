@@ -14,8 +14,9 @@ Checks, in order:
          not in the future.
      rule and unknown stamps carry no date by design and are exempt.
   3. data_version must be greater than the value on origin/main whenever the
-     file differs from origin/main. Skipped when there is no origin/main yet,
-     or when the file is unchanged (a docs-only PR needs no bump, and a push to
+     file differs from origin/main. A base ref that does not resolve is an
+     error; pass --base-ref '' when there is no main yet (CI does this). The
+     check is skipped when the file is unchanged (a docs-only PR needs no bump, and a push to
      main compares main with itself).
 
 Usage: python3 scripts/validate.py [--root DIR] [--base-ref origin/main]
@@ -147,7 +148,7 @@ def stamp_errors(node, today: dt.date, path: str = "$") -> list[str]:
     if isinstance(node, dict):
         if "confidence" in node:
             confidence = node.get("confidence")
-            if confidence in DATED:
+            if isinstance(confidence, str) and confidence in DATED:
                 if not node.get("verified_on"):
                     errors.append(f"{path}: {confidence} stamp has no verified_on")
                 if not node.get("source"):
@@ -167,8 +168,17 @@ def stamp_errors(node, today: dt.date, path: str = "$") -> list[str]:
 
 # MARK: - data_version
 
+def ref_exists(root: Path, base_ref: str) -> bool:
+    result = subprocess.run(
+        ["git", "-C", str(root), "rev-parse", "--verify", "--quiet", f"{base_ref}^{{commit}}"],
+        capture_output=True, text=True,
+    )
+    return result.returncode == 0
+
+
 def base_text(root: Path, base_ref: str, rel: str) -> str | None:
-    """The file as it is on base_ref, or None if the ref or the file is absent."""
+    """The file as it is on base_ref (which must exist), or None if the file
+    is absent there — a new file has no version to beat."""
     result = subprocess.run(
         ["git", "-C", str(root), "show", f"{base_ref}:{rel}"],
         capture_output=True, text=True,
@@ -193,6 +203,10 @@ def version_errors(rel: str, data: dict, current_text: str, base: str | None) ->
 
 def validate(root: Path, base_ref: str | None, today: dt.date) -> list[str]:
     errors: list[str] = []
+    if base_ref and not ref_exists(root, base_ref):
+        # A missing base would silently skip the data_version check, so it is
+        # an error. CI passes --base-ref '' itself when the repo has no main.
+        return [f"--base-ref {base_ref} does not resolve; fetch it or pass --base-ref '' to skip"]
     for rel, schema_rel in FILES.items():
         path = root / rel
         try:

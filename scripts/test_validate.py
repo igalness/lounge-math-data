@@ -77,6 +77,15 @@ class ValidatorTests(unittest.TestCase):
         data["airports"][0]["lounges"][0]["zone"] = "airside"
         self.assertTrue(any(".zone" in e for e in self.run_with(data)))
 
+    def test_nonStringConfidenceIsAViolationNotACrash(self):
+        data = copy.deepcopy(self.airports)
+        self.lca_stamp(data)["confidence"] = ["verified"]
+        self.assertTrue(any(".confidence" in e for e in self.run_with(data)))
+
+    def test_baseRefThatDoesNotResolveIsAnErrorNotASkip(self):
+        errors = validate.validate(ROOT, "refs/remotes/origin/no-such-branch", TODAY)
+        self.assertTrue(any("does not resolve" in e for e in errors), errors)
+
     def test_dataVersionMustGrowWhenTheFileChanges(self):
         base = json.dumps(self.airports)
         changed = copy.deepcopy(self.airports)

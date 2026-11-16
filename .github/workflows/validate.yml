@@ -14,9 +14,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Fetch main for the data_version check
-        run: git fetch origin main:refs/remotes/origin/main || echo "no main yet — data_version check skipped"
       - name: Validator self-tests
         run: python -m unittest discover -s scripts -v
       - name: Validate v1/
-        run: python scripts/validate.py --base-ref origin/main
+        # fetch-depth 0 gives origin/main on push and pull_request events. Only
+        # a repo with no main branch at all skips the data_version check; any
+        # other failure to resolve origin/main fails the run.
+        run: |
+          if [ -z "$(git ls-remote --heads origin main)" ]; then
+            echo "no main yet: data_version check skipped"
+            python scripts/validate.py --base-ref ''
+          else
+            git rev-parse --verify origin/main
+            python scripts/validate.py --base-ref origin/main
+          fi
