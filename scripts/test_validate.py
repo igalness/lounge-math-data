@@ -37,6 +37,23 @@ class ValidatorTests(unittest.TestCase):
     def lca_stamp(self, data):
         return data["airports"][0]["lounges"][0]["entry_window"]
 
+    def first_scraped_stamp(self, node):
+        """The first sourced scraped stamp anywhere in the file, so the test
+        does not depend on which stamps today's data happens to scrape."""
+        if isinstance(node, dict):
+            if node.get("confidence") == "scraped" and "source" in node:
+                return node
+            children = node.values()
+        elif isinstance(node, list):
+            children = node
+        else:
+            return None
+        for child in children:
+            found = self.first_scraped_stamp(child)
+            if found is not None:
+                return found
+        return None
+
     def test_currentDataPasses(self):
         self.assertEqual(validate.validate(ROOT, None, TODAY), [])
 
@@ -48,7 +65,9 @@ class ValidatorTests(unittest.TestCase):
 
     def test_unsourcedScrapedStampFails(self):
         data = copy.deepcopy(self.airports)
-        del data["airports"][0]["airside_access"]["source"]
+        stamp = self.first_scraped_stamp(data["airports"])
+        self.assertIsNotNone(stamp, "data has no scraped stamp to strip")
+        del stamp["source"]
         errors = self.run_with(data)
         self.assertTrue(any("scraped stamp has no source" in e for e in errors), errors)
 
