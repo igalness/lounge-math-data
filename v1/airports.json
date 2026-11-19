@@ -1,7 +1,7 @@
 {
   "_schema_version": "0.2",
-  "data_version": 3,
-  "generated_at": "2026-11-16T05:49:14Z",
+  "data_version": 4,
+  "generated_at": "2026-11-19T16:05:20Z",
   "source_repo": "https://github.com/igalness/lounge-math-data",
   "_notes": [
     "Every field that can go stale carries verified_on + source.",
@@ -14,7 +14,7 @@
       "name": "Larnaca Glafcos Clerides",
       "city": "Larnaca",
       "country": "CY",
-      "updated_at": "2026-11-16",
+      "updated_at": "2026-11-19",
       "border": {
         "eu": true,
         "schengen": false,
@@ -24,11 +24,11 @@
       },
       "airside_access": {
         "hard_limit_hours_before": null,
-        "automated_bp_gate": false,
-        "note": "No published cap on how early you may clear security. Human-staffed entry.",
-        "confidence": "scraped",
-        "verified_on": "2026-09-05",
-        "source": "agent web fetch, recorded in docs/handoff.md"
+        "automated_bp_gate": true,
+        "note": "No published cap on how early you may clear security (Hermes: arrive at least 2 h before departure). E-gates in the check-in area scan the printed boarding pass before security — first-hand Nov 2026 and https://www.hermesairports.com/prepare-your-journey/fly-out/e-gates-boarding-pass-readers (read 2026-11-19). Replaces the Sep 2026 'human-staffed entry' note (D35: the gate is the stricter reading).",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
       },
       "zone_split": false,
       "lounges": [
@@ -37,7 +37,7 @@
           "name": "Skala Lounge",
           "display_name": "Skala",
           "gate_hint": "3F, Gate 22",
-          "operator": "independent",
+          "operator": "Hermes Airports · Priority Pass · DragonPass",
           "location": "Airside, after security. Lift beside Chanel in Duty Free to 3rd floor. Next to Gate 22.",
           "zone": "all_international",
           "opening_hours": {
@@ -74,17 +74,18 @@
             "verified_on": "2026-09-05",
             "confidence": "verified",
             "source": "user booking via Trip.com"
-          }
+          },
+          "note": "Confirmed on two Trip.com vouchers (Jul 2026, Collinson) and the Hermes lounge page (24 h, read 2026-11-19). The only other lounge at LCA is the Aegean Business Lounge (status/business class only, 03:00–20:30) — not listed because it has no paid entry (D37)."
         }
       ],
       "terminal_alternative": {
         "quality": "adequate",
         "coffee_plus_sandwich_eur": null,
         "seating_with_power": "limited",
-        "notes_24h_food": "Food for Flight and Ritazza reported as 24h options.",
-        "confidence": "scraped",
-        "verified_on": "2026-09-05",
-        "source": "agent web fetch, recorded in docs/handoff.md"
+        "notes_24h_food": "24-hour food available (first-hand, Nov 2026); Food for Flight and Ritazza reported as 24h options (agent, Sep 2026).",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
       },
       "verdict": {
         "recommend": "yes_with_timing",
@@ -101,7 +102,7 @@
       "name": "Athens Eleftherios Venizelos",
       "city": "Athens",
       "country": "GR",
-      "updated_at": "2026-11-16",
+      "updated_at": "2026-11-19",
       "border": {
         "eu": true,
         "schengen": true,
@@ -110,11 +111,11 @@
       },
       "airside_access": {
         "hard_limit_hours_before": null,
-        "automated_bp_gate": false,
-        "note": "Airport publishes minimum arrival guidance only (2-3h), no maximum-early rule.",
-        "confidence": "scraped",
-        "verified_on": "2026-09-05",
-        "source": "agent web fetch, recorded in docs/handoff.md"
+        "automated_bp_gate": true,
+        "note": "Airport publishes minimum arrival guidance only (2–3 h), no maximum-early rule (agent, Sep 2026). Boarding passes are machine-read before security — first-hand, Nov 2026.",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
       },
       "zone_split": true,
       "zone_warning": "Passes are location-specific and NOT transferable between halls. Check your hall before buying.",
@@ -183,8 +184,12 @@
       ],
       "terminal_alternative": {
         "quality": "adequate",
-        "seating_with_power": "moderate",
-        "confidence": "unknown"
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": "limited",
+        "notes_24h_food": "24-hour food available (first-hand, Nov 2026).",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
       },
       "verdict": {
         "recommend": "depends_on_zone",
@@ -195,18 +200,1382 @@
           "Non-Schengen departure adds EES exit processing — budget queue time."
         ]
       }
+    },
+    {
+      "iata": "SOF",
+      "name": "Sofia Airport Vasil Levski",
+      "city": "Sofia",
+      "country": "BG",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": true,
+        "schengen": true,
+        "note": "EU and Schengen (air borders since March 2024). Non-Schengen departures cross an external border: EES applies to third-country nationals.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": 2,
+        "automated_bp_gate": true,
+        "note": "Terminal 1 (low-cost): security opens only about 2–2.5 h before departure — first-hand, Nov 2026; stored as the 2 h cap (D35/D36). Terminal 2: no cap published; boarding passes are machine-read before security (first-hand). Airport: be there at least 2 h before departure; check-in opens 2–3 h before, by airline (https://sofia-airport.eu/en/at-the-airport/travel-information/, read 2026-11-19).",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
+      },
+      "zone_split": true,
+      "zone_warning": "Terminal 2 lounge is in the Schengen zone; passport control is after it for non-Schengen flights.",
+      "lounges": [
+        {
+          "id": "sof-primeclass-t2",
+          "name": "Primeclass Lounge — Terminal 2",
+          "display_name": "Primeclass T2",
+          "zone": "schengen",
+          "location": "Terminal 2, departures, after security and passport control, Level 2 opposite Duty Free, near Gate C1. 540 m² plus terrace.",
+          "gate_hint": "L2, Gate C1",
+          "operator": "TAV Primeclass · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/bulgaria/sofia/sof6-primeclass-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/bulgaria/sofia/sof6-primeclass-lounge"
+          },
+          "restrictions": [
+            "Terminal 2 departures only",
+            "Max stay 3 h",
+            "Smoking on the terrace only",
+            "Opened 30 Mar 2026; replaces the former Aspire lounge"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://tavoperationservices.com/en-EN/services/lounges/primeclass-lounge-terminal-2-sofia-international-airport"
+          },
+          "price": {
+            "walk_in_eur": 60,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://fakti.bg/en/imoti/1045141-vasil-levski-airport-with-a-new-acquisition-for-passengers-for-1-million-euros-videophotos"
+          },
+          "note": "Lounge sits in the Schengen area; non-Schengen passengers clear passport control after leaving it. Walk-in €60 is from a press report of the opening (TAV lists no price); LoungePair sells a 3 h pass for about US$58. No lounge in Terminal 1 as of Nov 2026 (a T1 Primeclass is contracted, not open).",
+          "warning": "Non-Schengen departures: passport control comes after the lounge — budget queue time."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": "moderate",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
+      }
+    },
+    {
+      "iata": "VAR",
+      "name": "Varna Airport",
+      "city": "Varna",
+      "country": "BG",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": true,
+        "schengen": true,
+        "note": "EU and Schengen (air borders since March 2024). Non-Schengen departures cross an external border: EES applies to third-country nationals.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "Arrive 2 h before departure (airline instructions take precedence); go to security once you hold a boarding pass. No earliest-entry cap and no e-gate rule published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://varna-airport.bg/en/passenger-guide/check"
+      },
+      "zone_split": false,
+      "zone_warning": "Lounge is before border control; non-Schengen flights clear passports after it.",
+      "lounges": [
+        {
+          "id": "var-vip-lounge",
+          "name": "VIP/Business Lounge",
+          "display_name": "VIP Lounge",
+          "zone": "all_international",
+          "location": "Terminal 2, airside, ground floor of the departure hall, in front of Gate 1; terrace with apron view. Before border control.",
+          "gate_hint": "GF, Gate 1",
+          "operator": "Fraport Twin Star · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": false,
+            "open": "07:00",
+            "close": "22:00",
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/lounges/bulgaria/varna-airport/var1-vipbusiness-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 2,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/lounges/bulgaria/varna-airport/var1-vipbusiness-lounge"
+          },
+          "restrictions": [
+            "International flights only",
+            "Snacks and food not provided (Priority Pass)",
+            "Airport VIP terms: one 2 h session per flight; extra time charged unless the flight is delayed",
+            "Pre-booking is 24 h ahead; walk-in subject to availability"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://varna-airport.bg/en/passenger-guide/vip-services"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "No price on the airport site (VIP terms: EUR incl. VAT, contact vip@varna-airport.bg); LoungePair sells a 2 h pass for about US$45. Non-Schengen passengers pass passport control after the lounge.",
+          "warning": "Closes 22:00 — late departures get no lounge."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "BOJ",
+      "name": "Burgas Airport",
+      "city": "Burgas",
+      "country": "BG",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": true,
+        "schengen": true,
+        "note": "EU and Schengen (air borders since March 2024). Non-Schengen departures cross an external border: EES applies to third-country nationals.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "Arrive 2 h before departure (airline instructions take precedence). Hand-luggage-only passengers with online check-in may pass security only once the screens show 'Check-in open' for their flight. No numeric cap published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://burgas-airport.bg/en/passenger-guide/check"
+      },
+      "zone_split": true,
+      "zone_warning": "Lounge sits in the Schengen zone; border control for non-Schengen flights comes after it.",
+      "lounges": [
+        {
+          "id": "boj-airport-lounge",
+          "name": "Burgas Airport Lounge",
+          "display_name": "Burgas Lounge",
+          "zone": "schengen",
+          "location": "Terminal 2, departures, after security and passport control, ground floor, Schengen zone, opposite Gate 5 (Priority Pass; DragonPass says near Gate 1).",
+          "gate_hint": "GF, Gate 5",
+          "operator": "Fraport Twin Star · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": false,
+            "open": "07:00",
+            "close": "23:59",
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/bulgaria/burgas/boj-burgas-airport-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 2,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/bulgaria/burgas/boj-burgas-airport-lounge"
+          },
+          "restrictions": [
+            "Snacks and food not provided (Priority Pass)",
+            "Airport VIP terms: one 2 h session per flight; extra time charged unless the flight is delayed",
+            "No smoking or vaping"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://burgas-airport.bg/en/passenger-guide/vip-services"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": 43,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/BOJ/burgas-airport-lounge-burgas-airport/?currency=EUR"
+          },
+          "note": "The airport's own VIP page still says Terminal 1; Priority Pass and LoungePair place it in Terminal 2 (Schengen departures) — unresolved. DragonPass showed 'temporarily closed for runway works until April 2026' on 2026-11-19, Priority Pass shows it open.",
+          "warning": "Lounge is in the Schengen zone; non-Schengen departures clear border control after it."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "PDV",
+      "name": "Plovdiv Airport",
+      "city": "Plovdiv",
+      "country": "BG",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": true,
+        "schengen": true,
+        "note": "EU and Schengen (air borders since March 2024). Non-Schengen departures cross an external border: EES applies to third-country nationals.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "Arrive 90–120 minutes before departure on average; check-in opens 2–3 h before, by airline; be at the gate 30 min before. Nothing published on security opening or early-entry limits.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://www.plovdivairport.com/en/information/travel-tips"
+      },
+      "lounges": [
+        {
+          "id": "pdv-business-lounge",
+          "name": "Business Lounge",
+          "display_name": "Business Lounge",
+          "zone": "unknown",
+          "location": "Location not published; capacity 10 guests.",
+          "operator": "Plovdiv Airport",
+          "opening_hours": {
+            "confidence": "unknown"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "All visits must be reserved 24 h in advance (tel. 032-601122, operations@plovdivairport.com)",
+            "Not in the Priority Pass or DragonPass networks"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://plovdivairport.com/en/services/business-lounge"
+          },
+          "price": {
+            "walk_in_eur": 65,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://plovdivairport.com/en/services/business-lounge"
+          },
+          "note": "€65 per visit including drinks and refreshments. Hours, max stay and whether it is airside are not published — treat as reservation-only."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "PFO",
+      "name": "Paphos International Airport",
+      "city": "Paphos",
+      "country": "CY",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": true,
+        "schengen": false,
+        "note": "EU but outside Schengen. Departures to Schengen countries cross an external border: EES biometrics apply to third-country nationals.",
+        "ees_applies_to_schengen_destinations": true,
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": true,
+        "note": "Same Hermes guidance as Larnaca: arrive at least 2 h before departure; e-gates in the check-in area scan the printed boarding pass before security. No early-entry time restriction published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://www.hermesairports.com/prepare-your-journey/fly-out/check-in-passport-control"
+      },
+      "lounges": [
+        {
+          "id": "pfo-premium-lounge",
+          "name": "Premium Lounge",
+          "display_name": "Premium Lounge",
+          "zone": "all_international",
+          "location": "Main terminal, departures, airside after passport control and security, opposite Gate 7.",
+          "gate_hint": "Gate 7",
+          "operator": "Hermes Airports · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": false,
+            "open": "05:00",
+            "close": "00:00",
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/cyprus/paphos-international/pfo1-premium-lounge"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "Hermes: opens two hours before every scheduled flight, so hours follow the schedule",
+            "Access may be restricted when full",
+            "Alcohol 18+"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.hermesairports.com/prepare-your-journey/fly-out/lounges/premium"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Max stay and price are not published; the Hermes booking portal is script-only. Hours differ between Hermes (schedule-based) and Priority Pass (05:00–00:00): the stricter, schedule-based reading applies for early flights."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "BEG",
+      "name": "Belgrade Nikola Tesla Airport",
+      "city": "Belgrade",
+      "country": "RS",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border; EES applies on arrival in Schengen.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "No published rule on earliest security passage; airport advice is to arrive at least 2 h before departure. OSS-country transit passengers enter the transit area without re-screening.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://beg.aero/eng/news/belgrade-airport-shares-summer-travel-tips-ahead-busy-summer-season"
+      },
+      "lounges": [
+        {
+          "id": "beg-air-serbia-premium",
+          "name": "Air Serbia Premium Lounge",
+          "display_name": "Air Serbia Premium",
+          "zone": "all_international",
+          "location": "Terminal 2 transit zone, between gates A4 and A5.",
+          "gate_hint": "A4–A5",
+          "operator": "Air Serbia",
+          "opening_hours": {
+            "always_open": false,
+            "open": "05:00",
+            "close": "01:00",
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://airserbia.com/en/explore/services/passenger-lounges"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://airserbia.com/en/explore/services/passenger-lounges"
+          },
+          "restrictions": [
+            "Passes sold at the lounge counter as 1 h, 3 h, day and year passes; card payment only",
+            "Valid boarding pass required; unaccompanied guests 18+",
+            "Business-casual dress code; beachwear and flip-flops may be refused",
+            "Hours can change without notice"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://airserbia.com/en/explore/services/passenger-lounges"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Max stay stored as the 3 h pass (the lounge sells 1 h and 3 h entries; no limit is published for status guests). Prices are not on airserbia.com; an Amex listing quotes €35 (Air Serbia passengers) / €45 (others) for 3 h — unconfirmed. Closes 01:00; a new 160-seat lounge at C10 is planned, no date.",
+          "warning": "Closes at 01:00 — unusable for night departures after that."
+        },
+        {
+          "id": "beg-business-club",
+          "name": "Business Club",
+          "display_name": "Business Club",
+          "zone": "all_international",
+          "location": "Terminal 2, airside after passport control, right-hand side near Gate A4.",
+          "gate_hint": "Gate A4",
+          "operator": "Priority Pass · Mastercard Airport Experiences",
+          "opening_hours": {
+            "always_open": false,
+            "open": "06:00",
+            "close": "22:00",
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/serbia-republic-of/belgrade-nikola-tesla/beg-business-club"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "Priority Pass, Mastercard Gold/Platinum, TAV card holders and invited business-class passengers",
+            "Children under 8 free",
+            "50 seats, self-service buffet"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://beg.aero/eng/business"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "No walk-in price and no max stay published. A 2024 report said this lounge would close when Avolta opens a new one; still listed on beg.aero and Priority Pass on 2026-11-19.",
+          "warning": "Closes 22:00."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "SKP",
+      "name": "Skopje International Airport",
+      "city": "Skopje",
+      "country": "MK",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": true,
+        "note": "Check-in opens 120 min before departure (180 min on busy days) and closes 40 min before. Hand-luggage-only passengers scan their boarding pass at pre-boarding e-gates. No earliest-entry cap published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://skp.airports.com.mk/en-EN/passenger-guide/departures/page/departures-guide-for-skopje-international-airport-eng"
+      },
+      "lounges": [
+        {
+          "id": "skp-primeclass",
+          "name": "Primeclass Business Lounge",
+          "display_name": "Primeclass",
+          "zone": "all_international",
+          "location": "Airside after security and passport control, opposite the X-ray control, between gates 203 and 204, next to the ATU duty free.",
+          "gate_hint": "203–204",
+          "operator": "TAV Primeclass · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/north-macedonia/skopje-alexander-the-great/skp-primeclass-business-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/north-macedonia/skopje-alexander-the-great/skp-primeclass-business-lounge"
+          },
+          "restrictions": [
+            "Max stay 3 h",
+            "Access may be restricted when full",
+            "No dress code; no smoking or vaping",
+            "Children under 2 free"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": null,
+            "power": null,
+            "call_booths": null,
+            "confidence": "unknown"
+          },
+          "price": {
+            "walk_in_eur": 45,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://skp.airports.com.mk/en-EN/lounges/page/primeclass-business-lounge"
+          },
+          "note": "€45 including 18% VAT per the airport's lounge page. Amenities beyond airport-wide Wi-Fi are not published."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "TGD",
+      "name": "Podgorica Airport",
+      "city": "Podgorica",
+      "country": "ME",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": 2,
+        "automated_bp_gate": null,
+        "note": "Published: 'the passage at the access control is open 2 hours before the planned flight departure time', varying by airline policy. Check-in opens 120 min and closes 30 min before departure.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://montenegroairports.com/en/podgorica-airport/airport-procedures/"
+      },
+      "zone_split": false,
+      "lounges": [],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "notes_24h_food": "Not 24 h: the bakery in departures (between gates 4 and 5) keeps the airport's opening hours; the admin-building bar runs weekdays 07:00–15:00.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://montenegroairports.com/en/podgorica-airport/facilities-and-services/"
+      }
+    },
+    {
+      "iata": "KIV",
+      "name": "Chișinău International Airport",
+      "city": "Chișinău",
+      "country": "MD",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "No airport rule on earliest security passage; check-in opening is set per airline (2–3.5 h before departure). Border Police have at times limited terminal entry to ticket holders (Aug 2022, Sep 2025) and advised arriving no earlier than 3 h before the flight.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://airport.md/en/passenger/check-in"
+      },
+      "lounges": [
+        {
+          "id": "kiv-business-lounge",
+          "name": "Business Lounge",
+          "display_name": "Business Lounge",
+          "zone": "all_international",
+          "location": "Airside after passport control and security: left after duty free, up to Level 2, past the Golden Jet restaurant, on the right.",
+          "gate_hint": "L2",
+          "operator": "Chișinău Airport · DragonPass · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.dragonpass.com/explore/lounge/A33798/N05371"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "Children under 2 free",
+            "Premium Mastercard/Visa, DragonPass and Collinson access depends on the issuing bank"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": true,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://airport.md/en/services/business-lounge-1"
+          },
+          "price": {
+            "walk_in_eur": 35,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.old.ipn.md/en/airport-business-lounge-reopens-7967_1113616.html"
+          },
+          "note": "€35 per adult at the door (cash or card) per an airport press release reported by IPN; airport.md itself lists no price. Max stay not published."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "TIA",
+      "name": "Tirana International Airport Nënë Tereza",
+      "city": "Tirana",
+      "country": "AL",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "No published cap. Airport recommends arriving at least 3 h before departure; e-boarding passes are scanned at the security checkpoint and the gate; allow 30 min for screening.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://www.tirana-airport.com/en/article/1121/Announcements-&-Info-for-Passengers"
+      },
+      "lounges": [
+        {
+          "id": "tia-scanderbeg",
+          "name": "Scanderbeg VIP Lounge",
+          "display_name": "Scanderbeg",
+          "zone": "all_international",
+          "location": "Airside, ground floor, left after security and passport control, opposite Gate 3.",
+          "gate_hint": "GF, Gate 3",
+          "operator": "Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/pt-BR/lounges/albania/tirana-international-nene-tereza/tia2-scanderbeg-vip-lounge"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "Dress code: no shorts (Priority Pass)",
+            "Children under 3 free",
+            "Workstations and printers"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": true,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.dragonpass.com/explore/lounge/A10277/N00420"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "No walk-in price published; LoungePair sells a 3 h pass for about US$34. Max stay not published."
+        },
+        {
+          "id": "tia-business-lounge",
+          "name": "Business Lounge (airport)",
+          "display_name": "Business Lounge",
+          "zone": "all_international",
+          "location": "2nd floor of the passenger terminal, departures side.",
+          "operator": "Tirana International Airport",
+          "opening_hours": {
+            "confidence": "unknown"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "Opens at least one hour before the first departure and closes after the last — no clock hours published",
+            "Access 3,600 ALL per passenger (about €36 at Nov 2026 rates — not stored as EUR)",
+            "Page still carries COVID-era wording; may be outdated"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://tirana-airport.com/en/article/1/Business-lounge"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Hours and max stay not published; price is in ALL, so the EUR fields stay empty."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "TBS",
+      "name": "Tbilisi International Airport",
+      "city": "Tbilisi",
+      "country": "GE",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "International check-in opens 3 h and closes 60 min before departure; airport recommends being there 2 h before. No earliest-entry cap and no e-gate rule published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://tbilisiairport.com/en-EN/departures/page/check-in"
+      },
+      "lounges": [
+        {
+          "id": "tbs-primeclass",
+          "name": "Primeclass Lounge — International Terminal",
+          "display_name": "Primeclass",
+          "zone": "all_international",
+          "location": "International terminal, after security and passport control, 2nd floor, right side by Gate 101.",
+          "gate_hint": "2F, Gate 101",
+          "operator": "TAV Primeclass · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.tbilisiairport.com/en-EN/lounges/page/departure-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.tbilisiairport.com/en-EN/lounges/page/departure-lounge"
+          },
+          "restrictions": [
+            "Max stay 3 h",
+            "Children under 2 free",
+            "No smoking or vaping"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.tbilisiairport.com/en-EN/lounges/page/departure-lounge"
+          },
+          "price": {
+            "walk_in_eur": 60,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.tbilisiairport.com/en-EN/lounges/page/departure-lounge"
+          },
+          "note": "€60 incl. VAT on the airport page; reservation via primeclass.com.tr. The TBC Concept Space inside it has no published hours or price."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "BUS",
+      "name": "Batumi International Airport",
+      "city": "Batumi",
+      "country": "GE",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "The passenger guide only says to learn from your airline when to be at the airport. No timing rule published.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://batumiairport.com/en-EN/passenger-guide"
+      },
+      "lounges": [
+        {
+          "id": "bus-primeclass",
+          "name": "Primeclass Lounge — International Terminal",
+          "display_name": "Primeclass",
+          "zone": "all_international",
+          "location": "International terminal, first floor, right side after security control.",
+          "gate_hint": "1F",
+          "operator": "TAV Primeclass · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/georgia-republic-of/batumi-international/bus-primeclass-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/georgia-republic-of/batumi-international/bus-primeclass-lounge"
+          },
+          "restrictions": [
+            "Max stay 3 h (Priority Pass)",
+            "Infants free; children pay the full rate (airport page)"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://batumiairport.com/en-EN/airport-facilities-services/page/lounge"
+          },
+          "price": {
+            "walk_in_eur": 40,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://batumiairport.com/en-EN/airport-facilities-services/page/lounge"
+          },
+          "note": "€40 incl. VAT on the airport page; 24 h per Priority Pass (the airport page gives no hours)."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "EVN",
+      "name": "Zvartnots International Airport",
+      "city": "Yerevan",
+      "country": "AM",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "confidence": "unknown"
+      },
+      "lounges": [
+        {
+          "id": "evn-business-lounge",
+          "name": "Business Lounge",
+          "display_name": "Business Lounge",
+          "zone": "all_international",
+          "location": "Departures, after security and passport control, floor 4 by lift, towards the duty free.",
+          "gate_hint": "4F",
+          "operator": "Armenia International Airports · Priority Pass · DragonPass · LoungeKey",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.zvartnots.aero/EN/Content/BusinessLounge"
+          },
+          "entry_window": {
+            "earliest_hours_before_departure": 3,
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.zvartnots.aero/EN/Content/BusinessLounge"
+          },
+          "restrictions": [
+            "Admission 3 h before the flight; each payment covers 3 h",
+            "No refunds after payment",
+            "Smoking room inside"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.zvartnots.aero/EN/Content/BusinessLounge"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Priced in AMD: 25,000 online or by card, 30,000 cash at the door, per 3 h — EUR fields stay empty."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "AYT",
+      "name": "Antalya Airport",
+      "city": "Antalya",
+      "country": "TR",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border; domestic flights have no passport control.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "confidence": "unknown"
+      },
+      "zone_split": true,
+      "zone_warning": "Separate terminals: international flights depart from T2, domestic from the Domestic Terminal — the lounges are not interchangeable. Domestic lounge not listed (no domestic mode in 1.0, D38): CIP Lounge Domestic.",
+      "lounges": [
+        {
+          "id": "ayt-comfort-t2",
+          "name": "Comfort Lounge — International Terminal 2",
+          "display_name": "Comfort T2",
+          "zone": "all_international",
+          "location": "International Terminal 2, after security and passport control, 3rd floor near Gate 67. All international flights use T2 since 27 Oct 2025.",
+          "gate_hint": "3F, Gate 67",
+          "operator": "Fraport TAV · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/turkey/antalya/ayt5-comfort-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/turkey/antalya/ayt5-comfort-lounge"
+          },
+          "restrictions": [
+            "Max stay 3 h",
+            "Smoking area inside",
+            "Access may be restricted in peak season"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/AYT/antalya-airport-international-terminal-2-cip-lounge"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "No official price; LoungePair sells a 3 h pass for about US$33. The airport's own Prices section did not load."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "IST",
+      "name": "Istanbul Airport",
+      "city": "Istanbul",
+      "country": "TR",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border; domestic flights have no passport control.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "Check in at least 2 h before international and 1–1.5 h before domestic departures (Turkish Airlines says 3 h / 2 h). No published cap on early entry and no mention of automated boarding-pass gates.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://www.istairport.com/en/flights/airport-guides/departing-passenger-guide/services/complimentary-services/check-in-counters"
+      },
+      "zone_split": true,
+      "zone_warning": "International and domestic departures are on different floors with their own lounges. Domestic lounge not listed (no domestic mode in 1.0, D38): iGA Domestic Lounge.",
+      "lounges": [
+        {
+          "id": "ist-iga-international",
+          "name": "iGA Lounge — International",
+          "display_name": "iGA Lounge",
+          "zone": "all_international",
+          "location": "International departures floor, zone A–B near LC Waikiki, opposite Gate A6 (mezzanine, turn right after passport control).",
+          "gate_hint": "Gate A6",
+          "operator": "iGA · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.istairport.com/en/services/discover/iga-pass-experiences/iga-pass-premium-services/iga-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 6,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.istairport.com/en/services/discover/iga-pass-experiences/iga-pass-premium-services/iga-lounge"
+          },
+          "restrictions": [
+            "Paid entry: 6 h from first entry; Priority Pass members: 2 h",
+            "Smoking area inside",
+            "Children 7–12 half price, under 2 free"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.istairport.com/en/flights/airport-guides/departing-passenger-guide/services/special-passenger-services/iga-lounge"
+          },
+          "price": {
+            "walk_in_eur": 95.83,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.istairport.com/en/services/discover/iga-pass-experiences/iga-pass-premium-services/iga-lounge"
+          },
+          "note": "€95.83 plus VAT for adults (or 2,333 TRY); iGA Pass Daily (lounge up to 6 h plus fast track) €120 plus VAT. Max stay stored as the paid 6 h term (D37); Priority Pass visits are capped at 2 h."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "SAW",
+      "name": "Istanbul Sabiha Gökçen International Airport",
+      "city": "Istanbul",
+      "country": "TR",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every departure is an international border; domestic flights have no passport control.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": null,
+        "automated_bp_gate": null,
+        "note": "Start check-in at least 2 h before international and 1.5 h before domestic flights. No earliest-entry rule and no automated boarding-pass gates mentioned by the operator.",
+        "confidence": "scraped",
+        "verified_on": "2026-11-19",
+        "source": "https://isgweb.azurewebsites.net/passengers-and-visitors/before-flight/formality-and-rules/departing-passengers"
+      },
+      "zone_split": true,
+      "zone_warning": "International and domestic departures have separate lounges. Domestic lounge not listed (no domestic mode in 1.0, D38): Plaza Premium Lounge — Domestic.",
+      "lounges": [
+        {
+          "id": "saw-plaza-bosphorus",
+          "name": "Plaza Premium Bosphorus Lounge",
+          "display_name": "Plaza Bosphorus",
+          "zone": "all_international",
+          "location": "Airside, after passport control turn right, near Gate 205.",
+          "gate_hint": "Gate 205",
+          "operator": "Plaza Premium · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/turkey/istanbul-sabiha-gokcen-intl/saw-lgm-international-cip-lounge"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.flypgs.com/en/travel-services/other-travel-services/isg-lounge"
+          },
+          "restrictions": [
+            "Pegasus-sold entry €63 incl. VAT, valid 3 h; Priority Pass visits 2 h",
+            "Alcohol extra",
+            "International and transit flights only"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": null,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.flypgs.com/en/travel-services/other-travel-services/isg-lounge"
+          },
+          "price": {
+            "walk_in_eur": 63,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.flypgs.com/en/travel-services/other-travel-services/isg-lounge"
+          },
+          "note": "Max stay stored as the paid 3 h term (D37)."
+        },
+        {
+          "id": "saw-plaza-marmara",
+          "name": "Plaza Premium Lounge — Marmara",
+          "display_name": "Plaza Marmara",
+          "zone": "all_international",
+          "location": "International departures level near gates 205-B, after security and passport control.",
+          "gate_hint": "Gate 205-B",
+          "operator": "Plaza Premium · Priority Pass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.prioritypass.com/en-GB/lounges/turkey/sabiha-gokcen-international/saw3-plaza-premium-lounge-marmara"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.flypgs.com/en/travel-services/other-travel-services/isg-lounge"
+          },
+          "restrictions": [
+            "Pegasus-sold entry €63 incl. VAT, valid 3 h; Priority Pass visits 2 h",
+            "Smoking room inside",
+            "Alcohol extra"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": null,
+            "power": null,
+            "call_booths": null,
+            "confidence": "unknown"
+          },
+          "price": {
+            "walk_in_eur": 63,
+            "prepaid_typical_eur": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.flypgs.com/en/travel-services/other-travel-services/isg-lounge"
+          }
+        },
+        {
+          "id": "saw-kepler-club",
+          "name": "Kepler Club",
+          "display_name": "Kepler Club",
+          "zone": "all_international",
+          "location": "Airside, after passport control turn left, entrance straight ahead.",
+          "operator": "Kepler Club · Priority Pass · DragonPass",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/turkey/istanbul-sabiha-gokcen-intl/saw2-kepler-club"
+          },
+          "entry_window": {
+            "max_stay_hours": 3,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/turkey/istanbul-sabiha-gokcen-intl/saw2-kepler-club"
+          },
+          "restrictions": [
+            "Max stay 3 h",
+            "Resting pods subject to availability",
+            "Food and drink at partner discounts, paid by the guest",
+            "Children under 7 free"
+          ],
+          "amenities": {
+            "showers": true,
+            "wifi": true,
+            "power": true,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://prioritypass.com/lounges/turkey/istanbul-sabiha-gokcen-intl/saw2-kepler-club"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "No walk-in price published; LoungePair sells a 3 h pass for about US$31."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": null,
+        "confidence": "unknown"
+      }
+    },
+    {
+      "iata": "TLV",
+      "name": "Ben Gurion Airport",
+      "city": "Tel Aviv",
+      "country": "IL",
+      "updated_at": "2026-11-19",
+      "border": {
+        "eu": false,
+        "schengen": false,
+        "note": "Outside EU and Schengen. Every international departure crosses a border with a security interview before check-in.",
+        "confidence": "rule"
+      },
+      "airside_access": {
+        "hard_limit_hours_before": 2,
+        "automated_bp_gate": true,
+        "note": "Terminal 1 (low-cost): security opens only about 2–2.5 h before departure — first-hand, Nov 2026; stored as the 2 h cap (D35/D36). Terminal 3: no cap published; boarding passes are machine-read before security (first-hand). IAA guidance: arrive 3 h before international flights, 2 h for Eilat (https://www.ynetnews.com/travel/article/r1sf0gt70, read 2026-11-19). Security interview precedes check-in for international flights.",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
+      },
+      "zone_split": true,
+      "zone_warning": "Terminal 1 (low-cost) has no lounge and a late-opening security line; Terminal 3 has the lounges.",
+      "lounges": [
+        {
+          "id": "tlv-aspire-e",
+          "name": "Aspire Lounge — Concourse E",
+          "display_name": "Aspire E",
+          "zone": "all_international",
+          "location": "Terminal 3, Concourse E, airside after security and passport control, opposite Gate E2. No lounge in Terminal 1.",
+          "gate_hint": "T3, Gate E2",
+          "operator": "Aspire (Swissport/QAS)",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/TLV/ben-gurion-airport-terminal-3-concourse-e-aspire-lounge/"
+          },
+          "entry_window": {
+            "max_stay_hours": 2,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/TLV/ben-gurion-airport-terminal-3-concourse-e-aspire-lounge/"
+          },
+          "restrictions": [
+            "Sold as a 2 h pass; book at least 24 h ahead; free cancellation up to 24 h before",
+            "Show the QR pass and boarding pass at the door",
+            "No hen/stag parties; unaccompanied minors generally refused"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": true,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/TLV/ben-gurion-airport-terminal-3-concourse-e-aspire-lounge/"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Took over the former Dan Lounge E in early 2026; Priority Pass no longer lists any TLV lounge (Dan Lounge closed 31 Dec 2025). Prepaid 2 h pass about US$86 on LoungePair — not stored as EUR. An Aspire lounge in Concourse B is planned."
+        },
+        {
+          "id": "tlv-jetex-c",
+          "name": "Jetex VIP Lounge — Concourse C",
+          "display_name": "Jetex C",
+          "zone": "all_international",
+          "location": "Terminal 3, duty-free area of Concourse C, near the synagogue.",
+          "gate_hint": "T3, Concourse C",
+          "operator": "Jetex (LAYAM)",
+          "opening_hours": {
+            "always_open": true,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.loungepair.com/at/TLV/ben-gurion-airport-terminal-3-concourse-c-jetex-c-lounge/"
+          },
+          "entry_window": {
+            "confidence": "unknown"
+          },
+          "restrictions": [
+            "One-time paid entry reported at US$100 (press, Aug 2026)",
+            "Free for premium Amex cardholders and some business-class passengers"
+          ],
+          "amenities": {
+            "showers": null,
+            "wifi": true,
+            "power": true,
+            "call_booths": null,
+            "confidence": "scraped",
+            "verified_on": "2026-11-19",
+            "source": "https://www.jpost.com/travel/article-905259"
+          },
+          "price": {
+            "walk_in_eur": null,
+            "prepaid_typical_eur": null,
+            "confidence": "unknown"
+          },
+          "note": "Status conflicts on 2026-11-19: LoungePair says temporarily closed for renovation (reviewed 26 Sep 2026); press reported it open in Aug 2026. The EL AL King David Lounge (Matmid status only) is not listed — no paid entry (D37).",
+          "warning": "May be closed for renovation — check before buying."
+        }
+      ],
+      "terminal_alternative": {
+        "quality": null,
+        "coffee_plus_sandwich_eur": null,
+        "seating_with_power": "limited",
+        "notes_24h_food": "24-hour food available (first-hand, Nov 2026).",
+        "confidence": "verified",
+        "verified_on": "2026-11-18",
+        "source": "first-hand · Igal · 2026-11-18 (capture sheet)"
+      }
     }
   ],
-  "_todo_airports": [
-    "BEG",
-    "SKP",
-    "TGD",
-    "KIV",
-    "TBS",
-    "BUS",
-    "EVN",
-    "BOJ",
-    "AYT"
-  ],
-  "_todo_note": "Nine airports the user has flown but has no dated first-hand data for. Populate from receipts (Trip.com order history, Gmail boarding passes) and forward capture — not from memory."
+  "_todo_airports": [],
+  "_todo_note": "Remaining sweep (S3-02 tiers 2–3): SKG OTP CLJ IAS TSR SBZ INI OHD TIV SJJ PRN ZAG SPU DBV LJU BUD WAW KRK GDN PRG BTS KUT GYD ESB ADB DLM BJV. Populate from dated sources only."
 }
