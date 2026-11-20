@@ -1,7 +1,7 @@
 {
   "_schema_version": "0.2",
-  "data_version": 4,
-  "generated_at": "2026-11-19T16:05:20Z",
+  "data_version": 5,
+  "generated_at": "2026-11-20T10:51:00Z",
   "source_repo": "https://github.com/igalness/lounge-math-data",
   "_notes": [
     "Every field that can go stale carries verified_on + source.",
@@ -1182,7 +1182,7 @@
         "confidence": "unknown"
       },
       "zone_split": true,
-      "zone_warning": "Separate terminals: international flights depart from T2, domestic from the Domestic Terminal — the lounges are not interchangeable. Domestic lounge not listed (no domestic mode in 1.0, D38): CIP Lounge Domestic.",
+      "zone_warning": "International flights use T2; the domestic terminal's lounge is not listed (D38).",
       "lounges": [
         {
           "id": "ayt-comfort-t2",
@@ -1254,7 +1254,7 @@
         "source": "https://www.istairport.com/en/flights/airport-guides/departing-passenger-guide/services/complimentary-services/check-in-counters"
       },
       "zone_split": true,
-      "zone_warning": "International and domestic departures are on different floors with their own lounges. Domestic lounge not listed (no domestic mode in 1.0, D38): iGA Domestic Lounge.",
+      "zone_warning": "International and domestic floors have separate lounges; the domestic one is not listed (D38).",
       "lounges": [
         {
           "id": "ist-iga-international",
@@ -1328,7 +1328,7 @@
         "source": "https://isgweb.azurewebsites.net/passengers-and-visitors/before-flight/formality-and-rules/departing-passengers"
       },
       "zone_split": true,
-      "zone_warning": "International and domestic departures have separate lounges. Domestic lounge not listed (no domestic mode in 1.0, D38): Plaza Premium Lounge — Domestic.",
+      "zone_warning": "International and domestic lounges are separate; the domestic one is not listed (D38).",
       "lounges": [
         {
           "id": "saw-plaza-bosphorus",
